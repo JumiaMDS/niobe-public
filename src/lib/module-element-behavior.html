@@ -39,6 +39,7 @@
           accessControl: {
             type: Object,
           },
+          fields: Array,
           actions: Array,
           permissions: {
             type: Array
@@ -62,6 +63,10 @@
             type: Boolean,
             value: false
           },
+          tabs: {
+            type: Array,
+            value: []
+          },
           payload: {
             type: Array,
             value: []
@@ -73,6 +78,8 @@
         return [
           '_getUserActions(permissions, accessControl, actions)',
           '_setFormActions(userActions, pageType)',
+          '_onTabsRequired(fields)',
+          '_routeIdChanged(routeData.id, isReady)'
         ];
       }
 
@@ -87,10 +94,35 @@
         this.accessControl = _accessControl;
       }
 
+      _routeIdChanged (id, isReady) {
+        if (id && isReady) {
+          let _form = this.shadowRoot.querySelector('dash-form');
+          if (_form !== undefined && _form !== null) {
+            _form.formReset();
+          }
+          this.key = id;
+        }
+      }
+
       _getUserActions(permissions, accessControl, actions) {
         if (permissions && accessControl && actions) {
           this.userActions = super._getAvailableActions(permissions, accessControl, actions);
         }
+      }
+
+      _onTabsRequired (fields) {
+        var tabs = [];
+        for(let i = 0; i < fields.length; i++) {
+          if(fields[i].tab) {
+            if (i==0) {
+              tabs.push(fields[i].tab);
+            }
+            if (i !== 0 && fields[i].tab !== fields[i-1].tab) {
+              tabs.push(fields[i].tab);
+            }
+          }
+        }
+        this.tabs = tabs;
       }
 
       _setConnections () {
@@ -331,6 +363,17 @@
           bubbles: true,
           composed: true
         }));
+      }
+
+      _dropDownChanged (e) {
+        let selectedId = e.detail.item.selected;
+        if (selectedId) {
+          let _fields = this.fields;
+          let data = {}
+          data[e.detail.el.name] = selectedId;
+          _fields = this._setCheckStatusFromData(_fields, data);
+          this.set('fields', JSON.parse(JSON.stringify(_fields)));
+        }
       }
 
       constructor () {

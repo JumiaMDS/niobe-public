@@ -38,7 +38,9 @@
               id: null,
               name: null,
               icon: null,
-              active: null
+              order_position: 1,
+              active: null,
+              homepage_label: null
             }
           }
         };
@@ -103,10 +105,29 @@
               ]
             },
             {
+              label: 'Homepage Label',
+              name: 'homepage_label',
+              type: 'text',
+              validators: []
+            },
+            {
+              label: 'Order Position',
+              name: 'order_position',
+              type: 'number',
+              validators: [
+                  {
+                    type: 'regex',
+                    regex: '^[1-9][0-9]*$',
+                    message: 'Invalid Order Position.',
+                    required: true
+                  }
+              ]
+            },
+            {
               label: 'Active',
               name: 'active',
               type: 'checkbox',
-              validatores: []
+              validators: []
             }
           ],
           actions: {

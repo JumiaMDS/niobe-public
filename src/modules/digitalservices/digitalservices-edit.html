@@ -24,7 +24,7 @@
       route="{{route}}"
       pattern="/:id"
       data="{{routeData}}"></app-route>
-      
+
     <digitalservice-model
       on-model-response-changed="_setData"
       on-model-update-success="_notifyUser"
@@ -38,7 +38,7 @@
         has-cancel
         key="[[key]]"
         model="[[digitalserviceModel.model]]"
-        fields="[[form.fields]]"
+        fields="[[fields]]"
         actions="[[_formActions]]"
         model-data="[[data]]"
         notify-error="[[errorMessage]]"
@@ -111,7 +111,9 @@
             value: [
               'name',
               'icon',
-              'active'
+              'order_position',
+              'active',
+              'homepage_label'
             ]
           }
         };
@@ -129,22 +131,12 @@
         super._notifyUser(e)
       }
 
-      static get observers() {
-        return [
-          '_routeIdChanged(routeData.id, isReady)',
-        ];
-      }
-
       _setData (e) {
         this.data = e.detail.response;
       }
 
-      _routeIdChanged (id) {
-        this.key = id;
-      }
-
       _updateDigitalService (e) {
-        let valid = this.shadowRoot.querySelector('dash-form').validate(this.form.fields, e.detail.payload);
+        let valid = this.shadowRoot.querySelector('dash-form').validate(this.fields, e.detail.payload);
         this.errorMessage = "";
         if (valid.length > 0) {
           this.errorMessage = valid;
@@ -184,13 +176,14 @@
       }
 
       /**
-       * Use for one-time configuration of your component after local DOM is initialized. 
+       * Use for one-time configuration of your component after local DOM is initialized.
        */
       ready() {
         super.ready();
         this.digitalserviceModel = this.shadowRoot.querySelector(this.model);
         this.form = this.digitalserviceModel.getForm();
 
+        this.fields = this.form.fields;
         this.actions = this.form.actions;
         this.isReady = true;
 
