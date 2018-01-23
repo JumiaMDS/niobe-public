@@ -57,8 +57,10 @@ gulp.task('parameters', function() {
 // Invalidates cache on each deploy
 // Rename hash files
 var revisionConfig = {
-  dontRenameFile: ['index.html', 'service-worker.js', 'robots.txt', 'favicon.ico', 'bower.json', /\/images\/.*/, /\/src\/_locales\/.*/],
-  dontUpdateReference: ['index.html', 'service-worker.js', 'robots.txt', 'favicon.ico', 'bower.json', /\/images\/.*/, /\/src\/_locales\/.*/]
+  dontRenameFile: ['index.html', 'service-worker.js', 'robots.txt', 'favicon.ico', 
+                    'bower.json', /\/images\/.*/, /\/src\/_locales\/.*/, /\/bower_components\/webcomponentsjs\/.*/],
+  dontUpdateReference: ['index.html', 'service-worker.js', 'robots.txt', 'favicon.ico', 
+                    'bower.json', /\/images\/.*/, /\/src\/_locales\/.*/, /\/bower_components\/webcomponentsjs\/.*/]
 };
 
 var bundledDirectoryServer = global.config.build.rootDirectory + '/' + global.config.build.bundledDirectoryName,

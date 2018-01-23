@@ -3,6 +3,7 @@
 <link rel="import" href="../../../bower_components/paper-material/paper-material.html">
 <link rel="import" href="../../lib/module-element-behavior.html">
 <link rel="import" href="../../models/distributor-model.html">
+<link rel="import" href="../../elements/dash-header.html">
 <link rel="import" href="../../elements/dash-form.html">
 <link rel="import" href="../../elements/dash-list.html">
 <link rel="import" href="../../my-icons.html">
@@ -45,6 +46,10 @@
       on-model-update-success="_notifyUser"
       on-model-delete-success="_notifyAndNavigate"></distributor-model>
 
+    <dash-header
+      title="Distributor [[data.name]]"
+      icon="my-icons:business"></dash-header>
+
     <paper-material elevation="2">
       <dash-form
         class="default"
@@ -58,7 +63,6 @@
         notify-success="[[successMessage]]"
         on-cancel="_goToList"
         on-submit="_execAction">
-          <div class="title title-header"><h2><iron-icon icon="my-icons:business"></iron-icon>Distributor [[data.name]]</h2></div>
           <div slot="footer">
             <div class="services-items"><h2></iron-icon>Available services</h2></div>
             <dash-list

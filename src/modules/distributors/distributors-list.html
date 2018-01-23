@@ -1,5 +1,7 @@
 <link rel="import" href="../../../bower_components/polymer/polymer-element.html">
-<link rel="import" href="../../../bower_components/paper-fab/paper-fab.html">
+<link rel="import" href="../../../bower_components/iron-icon/iron-icon.html">
+<link rel="import" href="../../../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../../elements/dash-header.html">
 <link rel="import" href="../../elements/dash-list.html">
 <link rel="import" href="../../lib/module-element-behavior.html">
 <link rel="import" href="../../models/distributor-model.html">
@@ -11,18 +13,25 @@
       :host {
         display: block;
       }
-      paper-fab.blue {
-        background-color: var(--paper-yellow-500);
-        color: var(--paper-blue-grey-800);
+      paper-button.upload {
+        background-color: var(--dash-action-upload);
+        color: var(--dash-action-upload-text);
+        font-size: 14px;
+      }
+      paper-button.upload > iron-icon {
+        --iron-icon-width: 16px;
+        --iron-icon-height: 16px;
       }
     </style>
 
+    <dash-header
+      title="Distributors"
+      icon="my-icons:business"></dash-header>
+
     <dash-list
-      heading="Distributors"
       items="[[items]]"
       heading-style="title-header"
       filters="[[filters]]"
-      icon="my-icons:business"
       key="[[key]]"
       columns="[[columns]]"
       actions="[[userActions]]"
@@ -32,7 +41,9 @@
       items-per-page="[[itemsPerPage]]"
       notify-error="[[errorMessage]]"
       notify-success="[[successMessage]]">
-        <paper-fab slot="top-actions" on-tap="_gotoUpload" class="blue" icon="my-icons:file-upload"></paper-fab>
+        <paper-button slot="top-actions" class="upload" on-tap="_gotoUpload">
+          <iron-icon icon="my-icons:file-upload"></iron-icon> UPLOAD
+        </paper-button>
     </dash-list>
     <distributor-model
       on-model-delete-error="_notifyUserError"
