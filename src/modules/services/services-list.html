@@ -1,4 +1,5 @@
 <link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../elements/dash-header.html">
 <link rel="import" href="../../elements/dash-list.html">
 <link rel="import" href="../../lib/module-element-behavior.html">
 <link rel="import" href="../../models/service-model.html">
@@ -12,12 +13,13 @@
       }
     </style>
 
+    <dash-header
+      title="Services"
+      icon="my-icons:phone-android"></dash-header>
     <dash-list
-      heading="Services"
       items="[[items]]"
       heading-style="title-header"
       filters="[[filters]]"
-      icon="my-icons:phone-android"
       key="[[key]]"
       columns="[[columns]]"
       actions="[[userActions]]"

@@ -3,6 +3,7 @@
 <link rel="import" href="../../../bower_components/paper-material/paper-material.html">
 <link rel="import" href="../../lib/module-element-behavior.html">
 <link rel="import" href="../../models/distributor-model.html">
+<link rel="import" href="../../elements/dash-header.html">
 <link rel="import" href="../../elements/dash-form.html">
 <link rel="import" href="../../elements/dash-list.html">
 <link rel="import" href="../../my-icons.html">
@@ -38,8 +39,14 @@
       route="{{route}}"
       pattern="/:id"
       data="{{routeData}}"></app-route>
+
     <distributor-model
       on-model-response-changed="_setData"></distributor-model>
+
+    <dash-header
+      title="Distributors [[data.name]]"
+      icon="my-icons:business"></dash-header>
+
     <paper-material elevation="2">
       <dash-form
         class="default"
@@ -50,7 +57,6 @@
         model-data="[[data]]"
         on-cancel="_goToList"
         show-only>
-          <div class="header title-header"><h2><iron-icon icon="my-icons:business"></iron-icon>Distributors [[data.name]]</h2></div>
           <div slot="footer">
             <div class="services-items"><h2></iron-icon>Available services</h2></div>
             <dash-list

@@ -3,6 +3,7 @@
 <link rel="import" href="../../../bower_components/paper-material/paper-material.html">
 <link rel="import" href="../../lib/module-element-behavior.html">
 <link rel="import" href="../../models/cms-model.html">
+<link rel="import" href="../../elements/dash-header.html">
 <link rel="import" href="../../elements/dash-form.html">
 <link rel="import" href="../../my-icons.html">
 <link rel="import" href="../../shared-styles.html">
@@ -21,6 +22,11 @@
     <cms-model
       endpoint="/blocks"
       on-model-response-changed="_setData"></cms-model>
+
+    <dash-header
+      title="CMS Block Content [[data.name]]"
+      icon="my-icons:insert-comment"></dash-header>
+
     <paper-material elevation="2">
       <dash-form
         class="default"
@@ -32,7 +38,6 @@
         external-sources="[[externalData]]"
         on-cancel="_goToList"
         show-only>
-          <div class="header title-header"><h2><iron-icon icon="my-icons:insert-comment"></iron-icon>CMS Block Content [[data.name]]</h2></div>
       </dash-form>
     </paper-material>
   </template>
