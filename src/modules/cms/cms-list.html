@@ -1,4 +1,5 @@
 <link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../elements/dash-header.html">
 <link rel="import" href="../../elements/dash-list.html">
 <link rel="import" href="../../lib/module-element-behavior.html">
 <link rel="import" href="../../models/cms-model.html">
@@ -12,12 +13,14 @@
       }
     </style>
 
+    <dash-header
+      title="CMS Block Content"
+      icon="my-icons:insert-comment"></dash-header>
+
     <dash-list
-      heading="CMS Block Content"
       items="[[items]]"
       heading-style="title-header"
       filters="[[filters]]"
-      icon="my-icons:insert-comment"
       key="[[key]]"
       columns="[[columns]]"
       actions="[[userActions]]"

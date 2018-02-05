@@ -5,6 +5,7 @@
 <link rel="import" href="../../models/distributor-model.html">
 <link rel="import" href="../../models/service-model.html">
 <link rel="import" href="../../models/list-model.html">
+<link rel="import" href="../../elements/dash-header.html">
 <link rel="import" href="../../elements/dash-form.html">
 <link rel="import" href="../../my-icons.html">
 <link rel="import" href="../../shared-styles.html">
@@ -33,6 +34,10 @@
       on-model-create-error="_notifyUserError"
       on-model-create-success="_notifyUser"></service-model>
 
+    <dash-header
+      title="New Service"
+      icon="my-icons:phone-android"></dash-header>
+
     <paper-material elevation="2">
       <dash-form
         class="default"
@@ -49,7 +54,6 @@
         on-submit="_execAction"
         on-cancel="_goToList"
         model-ready>
-        <div class="title title-header"><h2><iron-icon icon="my-icons:phone-android"></iron-icon>New Service</h2></div>
       </dash-form>
     </paper-material>
   </template>

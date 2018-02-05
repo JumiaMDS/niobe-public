@@ -7,6 +7,7 @@
 <link rel="import" href="../../models/distributor-model.html">
 <link rel="import" href="../../models/service-model.html">
 <link rel="import" href="../../models/list-model.html">
+<link rel="import" href="../../elements/dash-header.html">
 <link rel="import" href="../../elements/dash-form.html">
 <link rel="import" href="../../my-icons.html">
 <link rel="import" href="../../shared-styles.html">
@@ -39,6 +40,10 @@
       on-model-load-error="_notifyUserError"
       on-model-response-changed="_setData"></service-model>
 
+    <dash-header
+      title="Services - [[data.title]]"
+      icon="my-icons:phone-android"></dash-header>
+
     <paper-material elevation="2">
       <dash-form
         class="default"
@@ -51,7 +56,6 @@
         notify-error="[[errorMessage]]"
         on-service-types-changed="_getServiceType"
         show-only>
-          <div class="header title-header"><h2><iron-icon icon="my-icons:phone-android"></iron-icon>Services - [[data.title]]</h2></div>
       </dash-form>
     </paper-material>
   </template>

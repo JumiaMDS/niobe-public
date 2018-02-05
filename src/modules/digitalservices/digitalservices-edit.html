@@ -4,6 +4,7 @@
 <link rel="import" href="../../../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../../lib/module-element-behavior.html">
 <link rel="import" href="../../models/digitalservice-model.html">
+<link rel="import" href="../../elements/dash-header.html">
 <link rel="import" href="../../elements/dash-form.html">
 <link rel="import" href="digitalservices-formelement.html">
 <link rel="import" href="digitalservices-formelement-button.html">
@@ -29,8 +30,11 @@
       on-model-response-changed="_setData"
       on-model-update-success="_notifyUser"
       on-model-delete-success="_notifyAndNavigate">
-
     </digitalservice-model>
+
+    <dash-header
+      title="Digital Service Type - [[data.name]]"
+      icon="my-icons:phone-android"></dash-header>
 
     <paper-material elevation="2">
       <dash-form
@@ -45,7 +49,6 @@
         notify-success="[[successMessage]]"
         on-cancel="_goToList"
         on-submit="_execAction">
-          <div class="title title-header"><h2><iron-icon icon="my-icons:phone-android"></iron-icon>Digital Service Type - [[data.name]]</h2></div>
           <div class="extra-padding" slot="before-end">
             <hr>
             <div class="text-centered">

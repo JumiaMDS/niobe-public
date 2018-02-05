@@ -6,6 +6,7 @@
 <link rel="import" href="cashback-module-behavior.html">
 <link rel="import" href="../../models/cashback-model.html">
 <link rel="import" href="../../models/service-model.html">
+<link rel="import" href="../../elements/dash-header.html">
 <link rel="import" href="../../elements/dash-form.html">
 <link rel="import" href="../../my-icons.html">
 <link rel="import" href="../../shared-styles.html">
@@ -35,6 +36,10 @@
       on-model-delete-success="_notifyAndNavigate">
     </cashback-model>
 
+    <dash-header
+      title="Edit Cashback - [[data.name]]"
+      icon="my-icons:account-box"></dash-header>
+
     <paper-material elevation="2">
       <dash-form
         class="default"
@@ -48,25 +53,6 @@
         notify-success="[[successMessage]]"
         on-cancel="_goToList"
         on-submit="_execAction">
-          <div class="title title-header"><h2><iron-icon icon="my-icons:account-box"></iron-icon>Edit Cashback - [[data.name]]</h2></div>
-          <div class="extra-padding" slot="before-end">
-            <hr>
-            <div class="text-centered">
-              <template is="dom-if" if="[[_isFormElementHidden]]">
-                <cashback-formelement-button  class="extra-padding"
-                  on-cashback-formelement-request="_openFirstFormElement"
-                  formelement="[[data.formelement]]"></cashback-formelement-button>
-              </template>
-            </div>
-            <template is="dom-if" if="[[!_isFormElementHidden]]" restamp>
-              <cashback-formelement
-                selected="[[selected]]"
-                cash-back-id="[[data.id]]"
-                formelement="[[data.formelement]]"
-                access-control="[[accessControl]]"
-                permissions="[[permissions]]"></cashback-formelement>
-            </template>
-          </div>
       </dash-form>
     </paper-material>
   </template>
