@@ -2,6 +2,7 @@
 <link rel="import" href="../../../bower_components/app-route/app-route.html">
 <link rel="import" href="../../../bower_components/paper-material/paper-material.html">
 <link rel="import" href="../../lib/module-element-behavior.html">
+<link rel="import" href="../../elements/dash-header.html">
 <link rel="import" href="../../models/listitem-model.html">
 <link rel="import" href="../../elements/dash-form.html">
 <link rel="import" href="../../my-icons.html">
@@ -24,6 +25,10 @@
       on-model-load-error="_notifyUserError"
       on-model-response-changed="_setData"></listitem-model>
 
+    <dash-header
+      title="Show List Item"
+      icon="my-icons:menu"></dash-header>
+
     <paper-material elevation="2">
       <dash-form
         class="default"
@@ -35,7 +40,6 @@
         on-cancel="_goToList"
         notify-error="[[errorMessage]]"
         show-only>
-        <div class="title title-header"><h2><iron-icon icon="my-icons:menu"></iron-icon>Show List Item</h2></div>
       </dash-form>
     </paper-material>
   </template>

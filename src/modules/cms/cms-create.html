@@ -2,6 +2,7 @@
 <link rel="import" href="../../../bower_components/paper-material/paper-material.html">
 <link rel="import" href="../../lib/module-element-behavior.html">
 <link rel="import" href="../../models/cms-model.html">
+<link rel="import" href="../../elements/dash-header.html">
 <link rel="import" href="../../elements/dash-form.html">
 <link rel="import" href="../../my-icons.html">
 <link rel="import" href="../../shared-styles.html">
@@ -17,6 +18,10 @@
       <cms-model
         endpoint="[[modelEndpoint]]"
         on-model-create-success="_notifyUser"></cms-model>
+
+      <dash-header
+        title="New CMS Block Content"
+        icon="my-icons:insert-comment"></dash-header>
   
       <paper-material elevation="2">
         <dash-form

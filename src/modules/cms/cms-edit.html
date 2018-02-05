@@ -3,6 +3,7 @@
 <link rel="import" href="../../../bower_components/paper-material/paper-material.html">
 <link rel="import" href="../../lib/module-element-behavior.html">
 <link rel="import" href="../../models/cms-model.html">
+<link rel="import" href="../../elements/dash-header.html">
 <link rel="import" href="../../elements/dash-form.html">
 <link rel="import" href="../../my-icons.html">
 <link rel="import" href="../../shared-styles.html">
@@ -25,6 +26,10 @@
       on-model-update-success="_notifyUser"
       on-model-delete-success="_notifyAndNavigate"></cms-model>
 
+    <dash-header
+      title="New CMS Block Content"
+      icon="my-icons:insert-comment"></dash-header>
+
     <paper-material elevation="2">
       <dash-form
         class="default"
@@ -38,7 +43,6 @@
         notify-success="[[successMessage]]"
         on-cancel="_goToList"
         on-submit="_execAction">
-          <div class="title title-header"><h2><iron-icon icon="my-icons:insert-comment"></iron-icon>CMS Block Content [[cmsModel.name]]</h2></div>
       </dash-form>
     </paper-material>
   </template>

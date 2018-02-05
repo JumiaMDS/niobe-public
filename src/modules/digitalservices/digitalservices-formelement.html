@@ -30,9 +30,6 @@
         --form-title: {
           border:none;
         }
-        --form-wrapper: {
-          border:none;
-        }
         --form-action-box: {
           padding: 0;
         }
@@ -46,6 +43,10 @@
           border: solid 1px var(--paper-red-500);
           color: var(--paper-red-500);
         }
+      }
+
+      .space-actions {
+        @apply --form-action-box-actions;
       }
     </style>
     <list-model
@@ -76,7 +77,7 @@
       on-cancel="_goToList"
       on-submit="_execAction">
       <div slot="action-box">
-        <div class="text-centered">
+        <div class="text-centered space-actions">
           <template is="dom-if" if="[[!_isFormElementButtonHidden]]">
             <digitalservices-formelement-button
               on-digitalservices-formelement-request="_openChildFormElement"

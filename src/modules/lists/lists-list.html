@@ -1,4 +1,5 @@
 <link rel="import" href="../../../bower_components/polymer/polymer-element.html">
+<link rel="import" href="../../elements/dash-header.html">
 <link rel="import" href="../../elements/dash-list.html">
 <link rel="import" href="../../lib/module-element-behavior.html">
 <link rel="import" href="../../models/list-model.html">
@@ -16,12 +17,14 @@
       }
     </style>
 
+    <dash-header
+      title="Lists"
+      icon="my-icons:menu"></dash-header>
+
     <dash-list
-      heading="Lists"
       items="[[items]]"
       heading-style="title-header"
       filters="[[filters]]"
-      icon="my-icons:menu"
       key="[[key]]"
       columns="[[columns]]"
       actions="[[userActions]]"
