@@ -35,7 +35,6 @@
         model="[[cmsModel.model]]"
         fields="[[fields]]"
         model-data="[[data]]"
-        external-sources="[[externalData]]"
         on-cancel="_goToList"
         show-only>
       </dash-form>
@@ -70,10 +69,6 @@
             value: 'mouse'
           },
           cmsModel: HTMLElement,
-          externalData: {
-            type: Array,
-            value: []
-          },
           pageType: {
             type: String,
             value: 'form'
