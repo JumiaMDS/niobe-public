@@ -49,8 +49,6 @@
         if (formField) {
           if (formField.tagName === 'PAPER-CHECKBOX') {
             formField.checked = data;
-          } else if (formField.tagName === 'DASH-FORM-DROPDOWN') {
-            formField.selected = data;
           } else if (formField.tagName === 'PAPER-CHIP-INPUT-AUTOCOMPLETE') {
             formField.items = data;
           } else {
