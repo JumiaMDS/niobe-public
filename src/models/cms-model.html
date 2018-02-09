@@ -82,10 +82,14 @@
               type: 'text',
               validators: [
                 {
+                  type: 'required',
+                  message: 'The key field is mandatory',
+                  stop: true
+                },
+                {
                   type: 'regex',
                   regex: '^(.){1,}$',
                   message: 'Invalid Key name',
-                  required: true,
                 }
               ]
             },
@@ -95,10 +99,14 @@
               type: 'text',
               validators: [
                 {
+                  type: 'required',
+                  message: 'The name field is mandatory',
+                  stop: true
+                },
+                {
                   type: 'regex',
                   regex: '^(.){1,}$',
                   message: 'Invalid Cms name',
-                  required: true,
                 }
               ]
             },

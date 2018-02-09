@@ -84,10 +84,14 @@
               type: 'text',
               validators: [
                 {
+                  type: 'required',
+                  message: 'The name field is mandatory',
+                  stop: true
+                },
+                {
                   type: 'regex',
                   regex: '^(.){1,}$',
                   message: 'Invalid Digital Service name',
-                  required: true,
                 }
               ]
             },
@@ -97,10 +101,14 @@
               type: 'text',
               validators: [
                 {
+                  type: 'required',
+                  message: 'The icon field is mandatory',
+                  stop: true
+                },
+                {
                   type: 'regex',
                   regex: '^(.){3,}$',
                   message: 'Invalid Icon, icon is mandatory',
-                  required: true,
                 }
               ]
             },
@@ -115,12 +123,16 @@
               name: 'order_position',
               type: 'number',
               validators: [
-                  {
-                    type: 'regex',
-                    regex: '^[1-9][0-9]*$',
-                    message: 'Invalid Order Position.',
-                    required: true
-                  }
+                {
+                  type: 'required',
+                  message: 'The order position field is mandatory',
+                  stop: true
+                },
+                {
+                  type: 'regex',
+                  regex: '^[1-9][0-9]*$',
+                  message: 'Invalid Order Position.',
+                }
               ]
             },
             {
