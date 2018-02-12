@@ -30,7 +30,6 @@
           model="[[distributorModel.model]]"
           fields="[[fields]]"
           actions="[[_formActions]]"
-          external-sources="[[externalData]]"
           notify-error="[[errorMessage]]"
           notify-success="[[successMessage]]"
           on-cancel="_goToList"
@@ -73,9 +72,6 @@
             value: 'form'
           },
           data: Object,
-          externalData: {
-            type: Object,
-          },
           form: Object,
           payload: {
             type: Array,

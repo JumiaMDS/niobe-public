@@ -91,10 +91,14 @@
               type: 'text',
               validators: [
                 {
+                  type: 'required',
+                  message: 'The title field is mandatory',
+                  stop: true
+                },
+                {
                   type: 'regex',
                   regex: '^(.){1,}$',
                   message: 'Invalid Service title',
-                  required: true,
                 }
               ]
             },
@@ -106,10 +110,14 @@
               selected: 0,
               validators: [
                 {
+                  type: 'required',
+                  message: 'The distributor field is mandatory',
+                  stop: true
+                },
+                {
                   type: 'regex',
                   regex: '^\\d{1,}$',
                   message: 'Invalid Distributor',
-                  required: true,
                 }
               ],
               event: {
@@ -124,10 +132,14 @@
               selected: 0,
               validators: [
                 {
+                  type: 'required',
+                  message: 'The distributor service key field is mandatory',
+                  stop: true
+                },
+                {
                   type: 'regex',
                   regex: '^\\d{1,}$',
                   message: 'Invalid Distributor Service Key',
-                  required: true,
                 }
               ],
               event: {
@@ -142,10 +154,14 @@
               selected: 0,
               validators: [
                 {
+                  type: 'required',
+                  message: 'The service type field is mandatory',
+                  stop: true
+                },
+                {
                   type: 'regex',
                   regex: '^\\d{1,}$',
                   message: 'Invalid Service Type',
-                  required: true,
                 }
               ],
               event: {
